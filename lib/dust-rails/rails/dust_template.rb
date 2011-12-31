@@ -1,4 +1,5 @@
 require 'tilt'
+require 'pp'
 require 'execjs'
 
 module Dust
@@ -29,9 +30,7 @@ module Dust
       end
 
       def evaluate(scope, locals, &block)
-        <<-TMPL
-        #{Source.context.call("dust.compile", data, name)}
-        TMPL
+        Source.context.call("dust.compile", data, file.split('assets/templates/').last.split('.', 2).first) + "\n"
       end
     end
   end
