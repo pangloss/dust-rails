@@ -147,8 +147,8 @@ Context.prototype.getPath = function(cur, down) {
 
   if (cur && len === 0) return ctx.head;
   if (!ctx.isObject) return undefined;
-  ctx = ctx.head;
-  var i = 0;
+  ctx = this.get(down[0]);
+  var i = 1;
   while(ctx && i < len) {
     ctx = ctx[down[i]];
     i++;
